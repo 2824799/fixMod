@@ -1,4 +1,4 @@
-package com.gtnh.scoreboardfix.core;
+package com.gtnh.fixmod.core;
 
 import java.util.List;
 import java.util.Set;
@@ -7,7 +7,7 @@ import org.spongepowered.asm.lib.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-public class ScoreboardFixMixinPlugin implements IMixinConfigPlugin {
+public class FixMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void onLoad(String mixinPackage) {

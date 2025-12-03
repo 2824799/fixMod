@@ -1,4 +1,4 @@
-package com.gtnh.scoreboardfix.mixin;
+package com.gtnh.fixmod.mixin;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -51,21 +51,21 @@ public abstract class MixinKubaBlock {
 
             // 直接访问静态blocks字段
             if (blocks == null) {
-                System.err.println("[KubaBlockFix] 警告：blocks字段为null");
+                System.err.println("[FixMod] [KubaBlock] 警告：blocks字段为null");
                 return Material.anvil;
             }
 
             kubatech.loaders.block.kubablock.BlockProxy proxy = blocks.get(metadata);
             if (proxy == null) {
                 // 如果元数据无效，返回默认材质
-                System.err.println("[KubaBlockFix] 警告：获取到无效的元数据 " + metadata + "，使用默认材质");
+                System.err.println("[FixMod] [KubaBlock] 警告：获取到无效的元数据 " + metadata + "，使用默认材质");
                 return Material.anvil;
             }
 
             return proxy.getMaterial();
         } catch (Exception e) {
             // 捕获任何异常，避免客户端崩溃
-            System.err.println("[KubaBlockFix] 获取材质时出错: " + e.getMessage());
+            System.err.println("[FixMod] [KubaBlock] 获取材质时出错: " + e.getMessage());
             return Material.anvil; // 使用默认材质
         }
     }

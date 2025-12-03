@@ -1,14 +1,15 @@
 {
   "required": true,
-  "package": "com.gtnh.scoreboardfix.mixin",
-  "refmap": "mixins.scoreboardfix.refmap.json",
+  "package": "com.gtnh.fixmod.mixin",
+  "refmap": "mixins.fixmod.refmap.json",
   "target": "@env(DEFAULT)",
   "minVersion": "0.7.11",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinNetHandlerPlayClient",
     "MixinWorldClientKeepChunks",
-    "MixinKubaBlock"
+    "MixinKubaBlock",
+    "MixinItemStack"
   ],
   "client": [
   ],

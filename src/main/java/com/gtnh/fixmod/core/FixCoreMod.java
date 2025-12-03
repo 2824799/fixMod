@@ -1,4 +1,4 @@
-package com.gtnh.scoreboardfix.core;
+package com.gtnh.fixmod.core;
 
 import java.util.Map;
 
@@ -6,10 +6,10 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 @IFMLLoadingPlugin.MCVersion("1.7.10")
 @IFMLLoadingPlugin.SortingIndex(1001) // Ensure it loads after other coremods if needed
-public class ScoreboardFixCoreMod implements IFMLLoadingPlugin {
+public class FixCoreMod implements IFMLLoadingPlugin {
 
-    public ScoreboardFixCoreMod() {
-        System.out.println("ScoreboardFixCoreMod initialized.");
+    public FixCoreMod() {
+        System.out.println("FixCoreMod initialized.");
     }
 
     @Override

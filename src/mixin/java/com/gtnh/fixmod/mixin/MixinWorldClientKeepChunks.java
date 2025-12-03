@@ -1,4 +1,4 @@
-package com.gtnh.scoreboardfix.mixin;
+package com.gtnh.fixmod.mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -32,7 +32,12 @@ public class MixinWorldClientKeepChunks {
             // 取消卸载：客户端会继续保留该 chunk
             // 可以注释掉下面的 println 避免日志刷屏
             System.out.println(
-                "[ChunkKeep] Prevented unload of chunk " + chunkX + "," + chunkZ + " (within " + KEEP_RADIUS + ")");
+                "[FixMod] [ChunkKeep] Prevented unload of chunk " + chunkX
+                    + ","
+                    + chunkZ
+                    + " (within "
+                    + KEEP_RADIUS
+                    + ")");
             ci.cancel();
         }
     }

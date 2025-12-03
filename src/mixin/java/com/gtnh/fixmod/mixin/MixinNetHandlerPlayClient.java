@@ -1,4 +1,4 @@
-package com.gtnh.scoreboardfix.mixin;
+package com.gtnh.fixmod.mixin;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -38,11 +38,15 @@ public abstract class MixinNetHandlerPlayClient {
             if (teamName != null && !teamName.isEmpty()) {
                 if (pendingTeams.add(teamName)) {
                     System.out.println(
-                        "[ScoreboardFix] Cached team during world-null: '" + teamName + "' (action=" + action + ")");
+                        "[FixMod] [Scoreboard] Cached team during world-null: '" + teamName
+                            + "' (action="
+                            + action
+                            + ")");
                 }
             } else {
                 System.out.println(
-                    "[ScoreboardFix] Received team packet with empty name while world==null (action=" + action + ")");
+                    "[FixMod] [Scoreboard] Received team packet with empty name while world==null (action=" + action
+                        + ")");
             }
 
             // 取消原包执行以避免崩溃（world == null 时处理会 NPE）
@@ -66,19 +70,20 @@ public abstract class MixinNetHandlerPlayClient {
                             // 创建缺失队伍
                             try {
                                 scoreboard.createTeam(pendingName);
-                                System.out
-                                    .println("[ScoreboardFix] Flushed & created pending team: '" + pendingName + "'");
+                                System.out.println(
+                                    "[FixMod] [Scoreboard] Flushed & created pending team: '" + pendingName + "'");
                             } catch (Exception e) {
                                 // createTeam 可能抛出（重名等），记录但继续
                                 System.out.println(
-                                    "[ScoreboardFix] Failed to create pending team '" + pendingName
+                                    "[FixMod] [Scoreboard] Failed to create pending team '" + pendingName
                                         + "': "
                                         + e.getMessage());
                             }
                         }
                     }
                 } catch (Exception e) {
-                    System.out.println("[ScoreboardFix] Exception while flushing pending teams: " + e.getMessage());
+                    System.out
+                        .println("[FixMod] [Scoreboard] Exception while flushing pending teams: " + e.getMessage());
                 } finally {
                     pendingTeams.clear();
                 }
@@ -102,13 +107,15 @@ public abstract class MixinNetHandlerPlayClient {
                     try {
                         scoreboard.createTeam(teamName);
                         System.out.println(
-                            "[ScoreboardFix] Created missing team on-the-fly: '" + teamName
+                            "[FixMod] [Scoreboard] Created missing team on-the-fly: '" + teamName
                                 + "' (action="
                                 + action
                                 + ")");
                     } catch (Exception e) {
                         System.out.println(
-                            "[ScoreboardFix] Failed to create team '" + teamName + "' on-the-fly: " + e.getMessage());
+                            "[FixMod] [Scoreboard] Failed to create team '" + teamName
+                                + "' on-the-fly: "
+                                + e.getMessage());
                         // 如果创建失败，为安全起见仍然取消此次包，避免 NPE
                         ci.cancel();
                     }
