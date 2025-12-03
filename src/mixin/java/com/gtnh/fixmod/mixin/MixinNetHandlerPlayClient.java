@@ -1,7 +1,6 @@
 package com.gtnh.fixmod.mixin;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import net.minecraft.client.Minecraft;
@@ -61,9 +60,7 @@ public abstract class MixinNetHandlerPlayClient {
             if (!pendingTeams.isEmpty()) {
                 try {
                     Scoreboard scoreboard = Minecraft.getMinecraft().theWorld.getScoreboard();
-                    Iterator<String> it = pendingTeams.iterator();
-                    while (it.hasNext()) {
-                        String pendingName = it.next();
+                    for (String pendingName : pendingTeams) {
                         if (pendingName == null) continue;
                         ScorePlayerTeam existing = scoreboard.getTeam(pendingName);
                         if (existing == null) {

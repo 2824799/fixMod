@@ -35,5 +35,7 @@
  */
 dependencies {
     compileOnly("com.github.GTNewHorizons:KubaTech:0.15.4:dev")
+    compileOnly("com.github.GTNewHorizons:SGCraft:1.4.5-GTNH:dev")
+//    compileOnly("com.github.GTNewHorizons:Angelica:1.0.0-beta72-pre:dev")
 }
 

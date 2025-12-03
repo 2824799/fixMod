@@ -9,7 +9,8 @@
     "MixinNetHandlerPlayClient",
     "MixinWorldClientKeepChunks",
     "MixinKubaBlock",
-    "MixinItemStack"
+    "MixinItemStack",
+    "MixinOrient4WaysByState"
   ],
   "client": [
   ],
