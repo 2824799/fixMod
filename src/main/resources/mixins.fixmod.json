@@ -11,7 +11,7 @@
     "MixinKubaBlock",
     "MixinItemStack",
     "MixinOrient4WaysByState",
-    "MixinBlockSliceAndSpliceSimple"
+    "MixinWorldClientSafeTick"
   ],
   "client": [
   ],
