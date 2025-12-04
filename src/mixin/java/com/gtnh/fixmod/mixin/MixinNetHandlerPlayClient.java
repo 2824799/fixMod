@@ -104,6 +104,28 @@ public abstract class MixinNetHandlerPlayClient {
             ci.cancel();
             return;
         }
+        // --- [新增] 接管 Action 1 (Remove) : 修复你刚刚遇到的崩溃 ---
+        // 之前的崩溃是因为原版逻辑传入了 null 的 team。我们要在这里拦截并安全处理。
+        if (action == 1) {
+            if (team != null) {
+                try {
+                    scoreboard.removeTeam(team);
+                    // System.out.println("[ScoreboardFix] Safely removed team: " + teamName);
+                } catch (Exception e) {
+                    // 如果删除过程中还能崩，那就吞掉异常，反正本来就是要删的
+                    System.err
+                        .println("[FixMod] [ScoreboardFix] Error removing team '" + teamName + "': " + e.getMessage());
+                }
+            } else {
+                // 如果 team 是 null，直接忽略，什么都不做，防止崩端
+                // System.out.println("[ScoreboardFix] Ignored remove request for missing team: " + teamName);
+            }
+
+            // 彻底取消原版处理，避开那个会崩的 removeTeam(null) 调用
+            System.err.println("[FixMod] [ScoreboardFix] Error removing team e");
+            ci.cancel();
+            return;
+        }
 
         // --- 4. 增强 Action 2 (Update) : 修复其余人不显示 ---
         if (action == 2) {
