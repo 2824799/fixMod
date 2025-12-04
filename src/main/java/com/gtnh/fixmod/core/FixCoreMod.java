@@ -5,7 +5,7 @@ import java.util.Map;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 @IFMLLoadingPlugin.MCVersion("1.7.10")
-@IFMLLoadingPlugin.SortingIndex(1001) // Ensure it loads after other coremods if needed
+@IFMLLoadingPlugin.SortingIndex(2000000001) // Ensure it loads after other coremods if needed
 public class FixCoreMod implements IFMLLoadingPlugin {
 
     public FixCoreMod() {

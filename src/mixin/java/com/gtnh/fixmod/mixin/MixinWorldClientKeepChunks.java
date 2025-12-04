@@ -31,13 +31,13 @@ public class MixinWorldClientKeepChunks {
         if (Math.max(dx, dz) <= KEEP_RADIUS) {
             // 取消卸载：客户端会继续保留该 chunk
             // 可以注释掉下面的 println 避免日志刷屏
-            System.out.println(
-                "[FixMod] [ChunkKeep] Prevented unload of chunk " + chunkX
-                    + ","
-                    + chunkZ
-                    + " (within "
-                    + KEEP_RADIUS
-                    + ")");
+            // System.out.println(
+            // "[FixMod] [ChunkKeep] Prevented unload of chunk " + chunkX
+            // + ","
+            // + chunkZ
+            // + " (within "
+            // + KEEP_RADIUS
+            // + ")");
             ci.cancel();
         }
     }

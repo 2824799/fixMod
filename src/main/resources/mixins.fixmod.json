@@ -10,7 +10,8 @@
     "MixinWorldClientKeepChunks",
     "MixinKubaBlock",
     "MixinItemStack",
-    "MixinOrient4WaysByState"
+    "MixinOrient4WaysByState",
+    "MixinBlockSliceAndSpliceSimple"
   ],
   "client": [
   ],
